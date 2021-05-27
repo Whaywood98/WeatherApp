@@ -8,6 +8,15 @@
   color: white;
 }
 
+.display-1 {
+  margin: 0px;
+}
+
+.jumbotron {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
 video {
   position: absolute;
   top: 0;
@@ -15,11 +24,10 @@ video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
 }
 
-h1 {
-  font-size: 60px;
+h1{
+  font-size: 6em;
   font-family: 'Open Sans';
   font-weight: 300;
   margin: 20px;
@@ -31,17 +39,22 @@ h3 {
   margin: 20px;
 }
 
+.city {
+  color: white;
+}
+
 .search {
   display: flex;
   justify-content: center;
+  z-index: 1000;
 }
 
 .submit {
-  box-sizing: border-box;
   background: rgba(0, 0, 0, 0);
   border: 2px rgba(0, 0, 0, 0);
   outline: none;
   color: white;
+  z-index: inherit;
 }
 
 .submit:hover {
@@ -49,49 +62,24 @@ h3 {
 }
 
 .search-box {
-  padding-right: 60px;
-  box-sizing: border-box;
+  position: relative;
   background: rgba(0, 0, 0, 0);
   border: 2px rgba(0, 0, 0, 0);
   outline: none;
   color: gray;
+  z-index: inherit;
 }
 
-.App {
+.week {
+  position: relative;
   text-align: center;
+  margin: 50px;
+  z-index: 1000;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

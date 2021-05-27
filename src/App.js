@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
 import './App.css';
-import {FaSearch} from 'react-icons/fa';
 import WeekContainer from './WeekContainer';
+import {FaSearch} from 'react-icons/fa';
+import {Capitalize} from './Functions';
 import { Route, Switch } from 'react-router-dom';
+import {Header} from './Header';
 
 class App extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            city: '',
-            week: null
-        }
+    
+    state = {
+        header: <Header/>,
+        city: '',
+        week: null
     }
+    
 
     onSubmit = () => {
         this.setState({
-            week: <WeekContainer city={this.state.city}/> 
-        })   
+            week: <WeekContainer city={this.state.city}/>,
+            header: <Header city={Capitalize(this.state.city)}/>
+        }) 
     }
 
     onInputChange = (e) => {
@@ -27,22 +30,23 @@ class App extends Component {
     }
 
     render() {
+
         return (
-            <>
-            <header class="header-content">
-                <h1>Weather Finder</h1>
-                <h3>Find the weather in your city!</h3> 
-                <form class="search" onSubmit={this.onSubmit}>
-                    <input class="search-box" type="text" placeholder="Search for your city" name="city" onChange={this.onInputChange}></input>
-                    <button class="submit" onClick={this.onSubmit}><FaSearch class="submit"/></button> 
-                </form>
-            </header>
-                <video src="clouds.mp4" muted loop autoPlay></video>
+            <div>
             
-            <div className="App">
-            {this.state.week}
-            </div> 
-            </>
+
+                {this.state.header} 
+            
+                <div className="search" onSubmit={this.onSubmit}>
+                    <input className="search-box" type="text" placeholder="Search for your city" name="city" onChange={this.onInputChange}/>
+                    <button className="submit" onClick={this.onSubmit.bind(this)}><FaSearch className="submit"/></button>
+                </div> 
+
+                <video src="clouds.mp4" muted loop autoPlay></video>
+
+                {this.state.week}
+            
+            </div>
         );
     }
 }
